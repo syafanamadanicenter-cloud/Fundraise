@@ -14,7 +14,7 @@ const CONFIG = {
   nominalCepatUSD: [5, 10, 25, 50, 100, 250],
   minimalDonasiUSD: 5,
   paypalMe: "ZaenudinRozak",               // Ubah dengan username PayPal.Me Anda
-  paypalQR: "paypal-qr.png",                       // opsional: nama file QR PayPal, mis. "paypal-qr.png"
+  paypalQR: mis. "paypal-qr.png",                       // opsional: nama file QR PayPal, mis. "paypal-qr.png"
 
   /* DATA DONASI TERVERIFIKASI
      Isi dengan link CSV dari Google Sheet (File > Share > Publish to web > CSV).
