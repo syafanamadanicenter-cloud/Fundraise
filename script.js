@@ -13,7 +13,7 @@ const CONFIG = {
   kursUSD: 16000,
   nominalCepatUSD: [5, 10, 25, 50, 100, 250],
   minimalDonasiUSD: 5,
-  paypalMe: "Zaenudin Rozak",               // Ubah dengan username PayPal.Me Anda
+  paypalMe: "ZaenudinRozak",               // Ubah dengan username PayPal.Me Anda
   paypalQR: "paypal-qr.png",                       // opsional: nama file QR PayPal, mis. "paypal-qr.png"
 
   /* DATA DONASI TERVERIFIKASI
