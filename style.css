@@ -187,3 +187,5 @@ select {
 }
 .methods { flex-wrap: wrap; }
 .btn { text-align: center; }
+
+#paypalQrImg { width: 100%; max-width: 260px; height: auto; display: block; margin: 12px auto; }
