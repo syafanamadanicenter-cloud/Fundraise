@@ -30,7 +30,7 @@ const CONFIG = {
 
   rekening: [
     { bank: "Bank Syariah Indonesia (BSI)", no: "1234567890", nama: "Committee Syafana Madani Center" },
-    { bank: "Bank Negara Indonesia (BNI)", no: "1854465763", nama: "Committee Syafana Madani Center" }
+    { bank: "Bank Negara Indonesia (BNI)", no: "1854465763", nama: "Committee Syafana Madani Center" },
   ]
 };
 
