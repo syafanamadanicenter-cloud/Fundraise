@@ -14,7 +14,7 @@ const CONFIG = {
   nominalCepatUSD: [5, 10, 25, 50, 100, 250],
   minimalDonasiUSD: 5,
   paypalMe: "ZaenudinRozak",               // Ubah dengan username PayPal.Me Anda
-  paypalQR: mis. "paypal-qr.png",                       // opsional: nama file QR PayPal, mis. "paypal-qr.png"
+  paypalQR: "paypal-qr.png",                       // opsional: nama file QR PayPal, mis. "paypal-qr.png"
 
   /* DATA DONASI TERVERIFIKASI
      Isi dengan link CSV dari Google Sheet (File > Share > Publish to web > CSV).
@@ -30,7 +30,7 @@ const CONFIG = {
 
   rekening: [
     { bank: "Bank Syariah Indonesia (BSI)", no: "1234567890", nama: "Committee Syafana Madani Center" },
-    { bank: "Bank Negara Indonesia (BNI)", no: "1854465763", nama: "Committee Syafana Madani Center" }
+    { bank: "Bank Negara Indonesia (BNI)", no: "1854465763", nama: "Committee Syafana Madani Center" },
   ]
 };
 
@@ -332,7 +332,7 @@ function kartu(ul, judul, baris, salinNilai, salinLabel) {
 }
 
 function bukaModal(d) {
-  ["Qris", "Bank", "Swift", "Paypal"].forEach((p) => { $("panel" + p).hidden = true; });
+  ["Qris", "Bank", "Paypal"].forEach((p) => { $("panel" + p).hidden = true; });
   $("modalNominal").textContent = fmt(d.totalBayar, d.mata);
 
   // Info kode referensi & nominal persis (dibuat dinamis, tanpa ubah HTML)
@@ -363,6 +363,8 @@ function bukaModal(d) {
   }
 
   if (d.metode === "paypal") {
+    $("panelBank").hidden = false;      // wajib: panelPaypal ada di dalam panelBank
+    $("listBank").innerHTML = "";       // kosongkan daftar rekening bank
     $("panelPaypal").hidden = false;
     const paypalUser = CONFIG.paypalMe;
 
