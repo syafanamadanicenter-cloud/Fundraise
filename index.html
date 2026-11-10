@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Galang Dana Bersama</title>
+  <meta name="description" content="Bantu wujudkan kebaikan bersama. Donasi mudah lewat QRIS dan transfer bank.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap bar">
+    <strong class="logo">❤ Fundraise</strong>
+    <a href="#donasi" class="btn btn-small">Donate</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="badge">Charity program</p>
+    <h1 id="judul">Help Build New Classrooms - Syafana Madani Center</h1>
+    <p class="lead" id="deskripsi">
+      Join us in building proper classrooms for our students. Every contribution makes a real difference and will be reported with full transparency.</p>
+  </div>
+</section>
+
+<main class="wrap grid">
+
+  <!-- KOLOM KIRI -->
+  <div class="col-main">
+    <section class="card">
+      <h2>About Program</h2>
+      <p>
+        Our classrooms can no longer accommodate the growing number of students,
+        especially during daily learning activities and major foundation events.
+        The funds raised will be used for expanding class buildings, improving sanitation facilities,
+        and acquiring essential learning tools.
+      </p>
+      <ul class="plain">
+        <li>Building New Classrooms</li>
+        <li>Proper learning environment</li>
+        <li></li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Current situation</h2>
+      <p class="muted">See the condition of our classroom building and children directly.</p>
+        <figure class="video-item">
+          <div class="video-frame">
+            <video controls playsinline preload="metadata" poster="video-bangunan.jpg">
+              <source src="video-bangunan.mp4" type="video/mp4">
+              Browser Anda tidak mendukung video.
+            </video>
+          </div>
+          <figcaption>Classroom building condition</figcaption>
+        </figure>
+    </section>
+
+    <section class="card">
+      <h2>Recurring donation</h2>
+      <p class="muted">See the impact of small daily donations.</p>
+      <label for="calcHari">Daily donation</label>
+      <input type="number" id="calcHari" value="5000" min="0" step="1000">
+      <label for="calcBulan">Duration (months)</label>
+      <input type="number" id="calcBulan" value="12" min="1" max="60">
+      <p class="calc-result">Total donations: <strong id="calcTotal">Rp 0</strong></p>
+      <button class="btn btn-outline" id="calcPakai" type="button">Use this amount</button>
+    </section>
+
+    <section class="card">
+      <h2>Recent Donors <span class="count" id="jumlahDonatur"></span></h2>
+      <ul class="donors" id="daftarDonatur"></ul>
+    </section>
+  </div>
+
+  <!-- KOLOM KANAN -->
+  <aside class="col-side" id="donasi">
+    <section class="card sticky">
+      <p class="raised"><strong id="terkumpul">Rp 0</strong></p>
+      <p class="muted small" id="terkumpulUSD"></p>
+      <p class="muted small">Raised of target <span id="target">Rp 0</span></p>
+      <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" id="progressWrap">
+        <div class="bar-fill" id="progressFill"></div>
+      </div>
+      <div class="stats">
+        <span><strong id="persen">0%</strong> Reached</span>
+        <span><strong id="sisaHari">0</strong> Days left</span>
+      </div>
+
+      <form id="formDonasi" novalidate>
+        <label for="mataUang">Currency</label>
+        <select id="mataUang">
+          <option value="IDR">IDR (Rupiah)</option>
+          <option value="USD">USD (US Dollar)</option>
+        </select>
+        <h3>Select amount</h3>
+        <div class="amounts" id="nominalCepat"></div>
+
+        <label for="nominal">Or enter another amount</label>
+        <input type="text" id="nominal" inputmode="numeric" placeholder="Rp 0" autocomplete="off">
+
+        <label for="nama">Name</label>
+        <input type="text" id="nama" maxlength="40" placeholder="Your Name">
+        <label class="check">
+          <input type="checkbox" id="anonim"> Hide name (Hamba Allah / Anonim)
+        </label>
+
+        <label for="pesan">prayer / message (opsional)</label>
+        <textarea id="pesan" rows="2" maxlength="120" placeholder="Sending you lots of love and strength. You are not alone in this journey."></textarea>
+
+        <h3>Payment method</h3>
+        <div class="methods" id="metodeList"></div>
+
+        <p class="error" id="error" role="alert"></p>
+        <button class="btn btn-big" type="submit">Continue donating</button>
+      </form>
+    </section>
+  </aside>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <p>&copy; <span id="tahun"></span> Fundraising. Managed with integrity and transparency.</p>
+  </div>
+</footer>
+
+  <!-- MODAL PEMBAYARAN -->
+<div class="modal" id="modal" hidden>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalJudul">
+    <button class="close" id="tutup" aria-label="Tutup">&times;</button>
+    <h2 id="modalJudul">Complete payment</h2>
+    <p>Total donation: <strong id="modalNominal"></strong></p>
+
+    <div id="panelQris">
+      <img id="qrisImg" alt="Kode QRIS" class="qris">
+      <p class="muted small">Scan using any e-wallet or mobile banking app.</p>
+    </div>
+
+    <div id="panelBank" hidden>
+      <div id="panelSwift" hidden>
+        <ul class="bank" id="listSwift"></ul>
+        <p class="muted small">International transfer fees are borne by the sender. Please save the transfer receipt.</p>
+      </div>
+      <div id="panelPaypal" hidden>
+        <a class="btn btn-big" id="paypalBtn" href="#" target="_blank" rel="noopener">Pay with PayPal</a>
+      </div>
+      <ul class="bank" id="listBank"></ul>
+    </div>
+
+    <p class="muted small">After paying, click the button below to confirm.</p>
+    <button class="btn btn-big" id="konfirmasi" type="button">I Have Paid (Confirm via WhatsApp)</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
